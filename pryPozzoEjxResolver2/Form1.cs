@@ -22,6 +22,7 @@ namespace pryPozzoEjxResolver2
         private void txtDistancia_TextChanged(object sender, EventArgs e)
         {
             
+
         }
 
         private void txtDistancia_KeyPress(object sender, KeyPressEventArgs e)
@@ -46,9 +47,40 @@ namespace pryPozzoEjxResolver2
 
         private void lblPrecioMostrar_TextChanged(object sender, EventArgs e)
         {
-            if (numDias.Value >= 7 && txtDistancia.Text > = 100)
-            {
+           
 
+
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCalcular_Click(object sender, EventArgs e)
+        {
+            int vDias = 0;
+            int vDistancia = 0;
+            int vCosto = 5;
+            int vPrecio = 0;
+            int vTotal = 0;
+
+            vDias = Convert.ToInt32(numDias.Value);
+            vDistancia = Convert.ToInt32(txtDistancia.Text);
+            vPrecio = vDistancia * vCosto;
+            vTotal = vPrecio / 2;
+
+            
+            if (vDistancia >= 100 && vDias >= 7)
+            {
+                lblPrecioMostrar.Text = ("$") + Convert.ToString(vPrecio);
+                lblTotalMostrar.Text = ("$") + vTotal.ToString() + " " + ("Su descuento es del %50");
+            }
+            else
+            {
+                lblPrecioMostrar.Text = ("$") + Convert.ToString(vPrecio);
+                lblTotalMostrar.Text = ("$") + Convert.ToString(vPrecio);
             }
         }
     }
